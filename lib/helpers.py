@@ -21,14 +21,14 @@ def create_location_table(locations):
         print(f'|{location.id}{" " * id_spaces}|{location.city}{" " * name_spaces}|')
     print('-' * 50)
 
-def create_menu_table(restaurants):
+def create_menu_table(menus):
     print('-' * 50)
     print(f'|ID  |MENU{" " * 39}|')
     print('-' * 50)
-    for restaurant in restaurants:
-        id_spaces = 4 - len(str(restaurant.id))
-        name_spaces = 43 - len(restaurant.menu)
-        print(f'|{restaurant.id}{" " * id_spaces}|{restaurant.menu}{" " * name_spaces}|')
+    for menu in menus:
+        id_spaces = 4 - len(str(menu.id))
+        name_spaces = 43 - len(menu.name)
+        print(f'|{menu.id}{" " * id_spaces}|{menu.name}{" " * name_spaces}|')
     print('-' * 50)
 
 

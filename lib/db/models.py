@@ -51,8 +51,18 @@ class IftarTable(Base):
     id = Column(Integer(), primary_key=True)
     state = Column(String())
     iftar_time = Column(String())
-
     location_id = Column(Integer(), ForeignKey('locations.id'))
 
     def __repr__(self):
         return f'IftarTable(id={self.id}, state="{self.state}", iftar_time="{self.iftar_time}")'
+
+
+class Menu(Base):
+    __tablename__ = 'menu items'
+
+    id = Column(Integer(), primary_key=True)
+    name = Column(String())
+    restaurant_id = Column(Integer(), ForeignKey('restaurants.id'))   
+
+    def __repr__(self):
+        return f'Menu(id={self.id}, name={self.name})'
