@@ -53,10 +53,11 @@ if __name__ == '__main__':
         restaurant_choice = session.query(Menu).filter(Menu.restaurant_id == restaurant_choices)
         create_menu_table(restaurant_choice)
 
-        menu_choices = input("Choose a menu item: ")
-        menu_choice = session.query(Menu).filter(Menu.id == menu_choices)
+        menu_choices = input("Choose a menu ID: ")
+        menu_choice = session.query(Menu.name).filter(Menu.id == menu_choices).first()[0]
+        print(menu_choice)
 
-        print(f"Please enjoy your {menu_choices}!")
+        print(f"Please enjoy your {menu_choice}!")
 
         leave_rating = input("Would you like to leave the rating? (y/n): ")
         while leave_rating!= "y" or leave_rating!= "n":
@@ -70,7 +71,7 @@ if __name__ == '__main__':
         
         rating = input("Please enter your rating out of 10: ")
 
-        user = User(full_name=full_name, city=city, rating=rating, restaurant=restaurant, menu=menu_choice)
+        user = User(full_name=full_name, city=city, rating=rating, restaurant = restaurant, menu=menu_choice)
         session.add(user)
         session.commit()
 
