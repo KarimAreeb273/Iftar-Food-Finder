@@ -13,11 +13,17 @@ class User(Base):
     id = Column(Integer(), primary_key=True)
     full_name = Column(String())
     city = Column(String())
+    restaurant = Column(String())
+    menu = Column(String())
+    rating = Column(Integer())
 
     def __repr__(self):
         return f'User(id={self.id}, ' + \
             f'full_name="{self.full_name}", ' + \
-            f'city="{self.city}")' 
+            f'city="{self.city}", ' + \
+            f'restaurant="{self.restaurant}", ' + \
+            f'menu="{self.menu}", ' + \
+            f'rating={self.rating})'
 
 class Location(Base):
     __tablename__ = 'locations'
